@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Gardening with Babita</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f6faf7;
+      color: #222;
+    }
+
+    header {
+      background: #3b8a3b;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, #e5f8e5, #f5fff5);
+      padding: 60px 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 350px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      margin: 20px;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      padding: 20px;
+    }
+
+    .hero-text h2 {
+      color: #2e5d3d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===== Shop Section ===== */
+    .shop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 50px 20px;
+      background: #fff;
+      border-top: 2px solid #d9ead3;
+    }
+
+    .product {
+      background: white;
+      border-radius: 16px;
+      width: 250px;
+      height: 380px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      margin: 12px 0 4px;
+      font-size: 1.1rem;
+      color: #2e5d3d;
+    }
+
+    .product p {
+      color: #4caf50;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .product button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-top: auto;
+      margin-bottom: 15px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+
+    .product button:hover {
+      background: #2e7d32;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 25px;
+      color: #555;
+      background: #f2f9f3;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero img {
+        width: 90%;
+      }
+      .product {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🪴 Shop with Babita</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">🛒 Cart</a>
+    </nav>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Fresh, Green & Grown with Love 🌱</h2>
+      <p>Explore our collection of hand-grown plants. Each one is nurtured organically — perfect for your home, balcony, or gifting.</p>
+    </div>
+    <img src="image/garden hero.jpg" alt="Hero image of garden plants">
+  </section>
+
+  <!-- ===== Shop Section ===== -->
+  <section class="shop">
+
+    <div class="product" data-name="Mint" data-price="250">
+      <img src="image/mint.jpg" alt="Mint Plant">
+      <h3>Mint</h3>
+      <p>₹250</p>
+      <button onclick="addToCart('Mint', 250)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Rosemary" data-price="300">
+      <img src="image/rosemary.webp" alt="Rosemary Plant">
+      <h3>Rosemary</h3>
+      <p>₹300</p>
+      <button onclick="addToCart('Rosemary', 300)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Tulsi" data-price="150">
+      <img src="image/tulsi.png" alt="Tulsi Plant">
+      <h3>Tulsi</h3>
+      <p>₹150</p>
+      <button onclick="addToCart('Tulsi', 150)">Add to Cart</button>
+    </div>
+
+    <div class="product" data-name="Aloe Vera" data-price="200">
+      <img src="aelovera.webp" alt="Aloe Vera Plant">
+      <h3>Aloe Vera</h3>
+      <p>₹200</p>
+      <button onclick="addToCart('Aloe Vera', 200)">Add to Cart</button>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 Gardening with Babita — Sustainably Grown • Hand-Picked with Love 💚
+  </footer>
+
+  <script>
+    function addToCart(name, price) {
+      const product = document.querySelector(`.product[data-name="${name}"] img`);
+      const image = product ? product.src : "image/placeholder.png";
+
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price, image });
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>

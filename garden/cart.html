@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart - Gardening with Babita</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f8fdf8;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: #222;
+      margin: 0;
+    }
+
+    header {
+      background: #3b8a3b;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 18px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .cart-container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      padding: 30px 40px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2e5d3d;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f3faf3;
+    }
+
+    td img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-total {
+      text-align: right;
+      margin-top: 25px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2e5d3d;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      background: #4caf50;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background: #2e7d32;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 50px 0;
+      color: #666;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      padding: 20px;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .cart-container {
+        padding: 20px;
+      }
+      td img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🛒 Your Cart</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="cart-container">
+    <h2>Review Your Items</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal">Total: ₹0</div>
+    <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </section>
+
+  <footer>
+    © 2025 Gardening with Babita — Sustainably grown, hand-picked with care 🌿
+  </footer>
+
+  <script>
+    // Load cart from localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+
+    function renderCart() {
+      if (cart.length === 0) {
+        cartItems.innerHTML = `<p class="empty">Your cart is empty 🌱</p>`;
+        cartTotal.textContent = "Total: ₹0";
+        return;
+      }
+
+      let rows = `
+        <table>
+          <tr><th>Item</th><th>Price</th><th>Remove</th></tr>
+      `;
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        rows += `
+          <tr>
+            <td>
+              <img src="${item.image}" alt="${item.name}">
+              ${item.name}
+            </td>
+            <td>₹${item.price}</td>
+            <td><button onclick="removeItem(${index})" style="background:#ff5252;color:white;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;">✕</button></td>
+          </tr>
+        `;
+      });
+
+      rows += "</table>";
+      cartItems.innerHTML = rows;
+      cartTotal.textContent = `Total: ₹${total}`;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      const total = cart.reduce((sum, i) => sum + i.price, 0);
+      alert(`Thank you for your purchase!\nTotal: ₹${total}\nWe’ll contact you soon for delivery 🌿`);
+      localStorage.removeItem("cart");
+      window.location.href = "shop.html";
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>

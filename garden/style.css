@@ -1,0 +1,427 @@
+/* === ROOT & GLOBAL STYLES === */
+:root {
+  --accent: #2e7d32;
+  --light-accent: #4caf50;
+  --bg-light: #e8f5e9;
+  --text-dark: #222;
+  --text-light: #fff;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* === HEADER === */
+header {
+  background: var(--accent);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* === NAVIGATION === */
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  text-decoration: underline;
+  color: #c8e6c9;
+}
+
+/* === HERO SECTION (Full Width Background) === */
+.hero-bg {
+  background: url("image/garden hero.jpg") center/cover no-repeat;
+  color: var(--text-light);
+  text-align: center;
+  padding: 160px 20px;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 50px 70px;
+  border-radius: 20px;
+}
+
+.overlay h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  max-width: 700px;
+}
+
+/* === BUTTON === */
+.btn {
+  background: var(--light-accent);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #256628;
+}
+
+/* === FOOTER === */
+footer {
+  background: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: inline-block;
+    margin: 8px;
+  }
+
+  .overlay {
+    padding: 30px 25px;
+  }
+
+  .overlay h2 {
+    font-size: 2rem;
+  }
+
+  .overlay p {
+    font-size: 1rem;
+  }
+}
+/* === SHOP PAGE FIXED SIZE === */
+.shop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.product {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  width: 250px;              /* fixed width */
+  height: 370px;             /* fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.product img {
+  width: 100%;
+  height: 180px;             /* fixed image height */
+  object-fit: cover;         /* crop nicely */
+  border-radius: 10px;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.product p {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.product button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.product button:hover {
+  background: #2e7d32;
+}
+/* Contact Hero Section */
+.hero-contact {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.hero-contact img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-contact .hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  border-radius: 12px;
+}
+
+/* Contact Section Layout */
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 60px 10%;
+  background: #f7fdf7;
+}
+
+/* Contact Form */
+.contact-card {
+  flex: 1 1 350px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  transition: 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #333;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 5px rgba(46,125,50,0.3);
+}
+
+.contact-form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #256628;
+}
+
+/* Contact Info */
+.contact-info {
+  flex: 1 1 300px;
+  background: #e8f5e9;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+  color: #2e7d32;
+  margin-top: 0;
+}
+
+.contact-info p {
+  margin: 10px 0;
+  color: #333;
+}
+/* About Hero Section */
+.hero-about {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.hero-about img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-about .hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  border-radius: 15px;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 10%;
+  background: #f9fff9;
+}
+
+.about-content {
+  flex: 1 1 400px;
+  color: #333;
+}
+
+.about-content h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1 1 350px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Mission Section */
+.mission {
+  text-align: center;
+  padding: 60px 10%;
+  background: #e8f5e9;
+}
+
+.mission h2 {
+  color: #2e7d32;
+  margin-bottom: 40px;
+}
+
+.mission-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.mission-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.mission-card:hover {
+  transform: translateY(-8px);
+}
+
+.mission-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.mission-card h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.mission-card p {
+  color: #444;
+  font-size: 15px;
+}
+
