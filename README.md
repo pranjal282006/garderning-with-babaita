@@ -1,1 +1,1 @@
-# garderning-with-babita
+# gardening-with-babita
